@@ -92,17 +92,22 @@ section {
 .sec1{
     display: none;
     transition: translateY(0) scale(1);
+    background-color: rgba(161, 228, 38, 0.849);
     
 }
 
 .sec2{
     display: none;
     transition: translateY(0) scale(1);
+    background-color: slateblue;
+
+
 }
 
 .sec3{
     display: none;
     transition: translateY(0) scale(1);
+    background-color: rgb(146,205,90);
 }
 
 
@@ -110,12 +115,29 @@ section {
 .sec4{
     display: none;
     transition: translateY(0) scale(1);
+    background-color: salmon;
 }
 
 .sec5{
     display: none;
     transition: translateY(0) scale(1);
+    background-color: springgreen;
+
     
+}
+
+.active{
+    display: block;
+    animation: scaleAnim 1s ease-in-out;
+    @keyframes scaleAnim{
+        0%{
+            transform: translateY(-100%) scaleY(0)
+        }
+        100%{
+            transform: translateY(0) scaleY(1);
+        }
+        
+    }
 }
 
 //Controlls
