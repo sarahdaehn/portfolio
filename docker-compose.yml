@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports:
-      - "8000:5000"
-      - "9292:3000"
+    #  - "8000:5000"
+      - "3000:3000"
   redis:
     image: "redis:alpine"

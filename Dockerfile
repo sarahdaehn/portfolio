@@ -8,7 +8,7 @@ RUN bundle install
 COPY . ./
 
 # Launch the server (or run some other Ruby command)
-CMD ["bundle", "exec", "rackup"]
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
 
 RUN echo hello \
 # comment 
