@@ -15,3 +15,28 @@ variable "do_token" {}
 provider "digitalocean" {
   token = var.do_token
 }
+# Create a new container registry
+resource "digitalocean_container_registry" "foobar" {
+  name                   = "portfoliosarah"
+  subscription_tier_slug = "starter"
+}
+
+
+resource "digitalocean_kubernetes_cluster" "foo" {
+  name   = "foo"
+  region = "nyc1"
+  # Grab the latest version slug from `doctl kubernetes options versions`
+  version = "1.22.8-do.1"
+
+  node_pool {
+    name       = "worker-pool"
+    size       = "s-2vcpu-2gb"
+    node_count = 3
+
+    taint {
+      key    = "workloadKind"
+      value  = "database"
+      effect = "NoSchedule"
+    }
+  }
+}
