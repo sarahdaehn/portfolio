@@ -13,7 +13,7 @@ services:
     #  - "8000:5000"
       - "3000:3000"
     volumes:
-      - .:/code
+      - .:/yourapp
     depends_on:
       - db  
     environment:
@@ -21,22 +21,3 @@ services:
       POSTGRES_PASSWORD: password
   redis:
     image: "redis:alpine"
-
-
-  
-
-
-# version: '3'
-# services:
-#   db:
-#     image: postgres
-#     volumes:
-#       - ./tmp/db:/var/lib/postgresql/data
-#   web:
-#     build: .
-#     volumes:
-#       - .:/myapp
-#     ports:
-#       - "3000:3000"
-#     depends_on:
-#       - db
