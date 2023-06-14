@@ -26,11 +26,13 @@ resource "digitalocean_kubernetes_cluster" "foo" {
   name   = "foo"
   region = "nyc1"
   # Grab the latest version slug from `doctl kubernetes options versions`
-  version = "1.22.8-do.1"
+#   version = "1.22.8-do.1"
+#   version = "1.16.13-do.0"
+  version = "1.27.2-do.0"
 
   node_pool {
     name       = "worker-pool"
-    size       = "s-2vcpu-2gb"
+    size       = "s-2vcpu-2gb" 
     node_count = 3
 
     taint {
