@@ -19,3 +19,11 @@ spec:
         image: registry.digitalocean.com/portfoliosarah/my_portfolio-web:latest
         ports:
         - containerPort: 3000
+        env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret-config
+                  key: password
+            - name: POSTGRES_USER
+              value: postgres
