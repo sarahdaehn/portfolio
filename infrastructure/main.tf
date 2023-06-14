@@ -37,10 +37,10 @@ resource "digitalocean_kubernetes_cluster" "foo" {
     node_count = 1
 
 
-    taint {
-      key    = "workloadKind"
-      value  = "database"
-      effect = "NoSchedule"
-    }
+    # taint {
+    #   key    = "workloadKind"
+    #   value  = "database"
+    #   effect = "NoSchedule"
+    # }
   }
 }
