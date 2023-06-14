@@ -29,11 +29,13 @@ resource "digitalocean_kubernetes_cluster" "foo" {
 #   version = "1.22.8-do.1"
 #   version = "1.16.13-do.0"
   version = "1.27.2-do.0"
+  registry_integration = true
 
   node_pool {
     name       = "worker-pool"
-    size       = "s-2vcpu-2gb" 
-    node_count = 3
+    size       = "s-1vcpu-2gb" 
+    node_count = 1
+
 
     taint {
       key    = "workloadKind"
