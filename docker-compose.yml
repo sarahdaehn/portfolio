@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+
+  web:
+    build: .
+    ports:
+    #  - "8000:5000"
+      - "3000:3000"
+    volumes:
+      - .:/yourapp
+    depends_on:
+      - db  
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+  redis:
+    image: "redis:alpine"
